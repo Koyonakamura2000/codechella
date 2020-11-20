@@ -3,7 +3,7 @@
 # 1. use .gitignore and ignore config.py
 # 2. open git bash in repository and type "git rm --cached config.py"
 
-consumer_key = ""
+consumer_key = "hello"
 consumer_secret = ""
 access_token = ""
 access_token_secret = ""
