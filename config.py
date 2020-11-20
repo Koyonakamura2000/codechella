@@ -1,4 +1,9 @@
-consumer_key = "vLYJDqtSUiDtZ7fIoaz6fzEcv"
-consumer_secret = "R1p4uUNLwvIJZfQ1XyT60uQgech8PvXMQ8uXNbmgBqR85oLYFb"
-access_token = "4459151833-AM8EtRbq86EOGcf0RBWWNXmSObxRYmjaArrt1KJ"
-access_token_secret = "rg4QcEdw2GxJCQRnkZuURdhpqszLo4HKcUdhhuSVMGdU6"
+# Template file - DO NOT PUSH TO REPOSITORY
+# To stop tracking the file,
+# 1. use .gitignore and ignore config.py
+# 2. open git bash in repository and type "git rm --cached config.py"
+
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
