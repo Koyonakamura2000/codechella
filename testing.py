@@ -1,6 +1,7 @@
 import tweepy
 import config
 
+# testing
 # create a config.py with the template below, with fields entered appropriately from developer.twitter.com:
 # consumer_key = ""
 # consumer_key_secret = ""
