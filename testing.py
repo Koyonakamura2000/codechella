@@ -1,6 +1,12 @@
 import tweepy
 import config
 
+# create a config.py with the template below, with fields entered appropriately from developer.twitter.com:
+# consumer_key = ""
+# consumer_key_secret = ""
+# access_token = ""
+# access_token_secret = ""
+
 # Setup authentication
 auth = tweepy.OAuthHandler(config.consumer_key, config.consumer_secret)
 auth.set_access_token(config.access_token, config.access_token_secret)
