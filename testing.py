@@ -8,6 +8,7 @@ def pretty(obj):
     return json.dumps(obj, sort_keys=True, indent=2)
 
 
+# testing
 # create a config.py with the template below, with fields entered appropriately from developer.twitter.com:
 # consumer_key = ""
 # consumer_key_secret = ""
