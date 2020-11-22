@@ -10,7 +10,7 @@ class MangaFeed:
         self.tweets = self.__get_data()
 
     def __get_data(self):
-        tweets = self.api.search(q=self.term, count=self.counts)
+        tweets = self.api.search(q=self.term, count=self.counts, result_type="mixed")
         qtweets = []
         for tweet in tweets:
             if tweet.user.followers_count >= 0 and \
@@ -23,6 +23,7 @@ class MangaFeed:
                 for i in tweet.extended_entities['media']:
                     image_links.append(tweet.extended_entities['media'][0]['media_url'])
                 dictionary = {'url': url,
+                              'post_id': tweet._json['id'],
                               'twitter handle': tweet.user.screen_name,
                               'date posted': tweet.created_at,
                               'images': image_links}
@@ -33,6 +34,6 @@ class MangaFeed:
         return 'Tracking data regarding tweets with both {} in the title and at ' \
                'least one image from a selection of {} posts.'.format(self.term, self.counts)
 
-# feed = Manga_Feed("漫画", 100)
+# feed = MangaFeed("漫画", 10)
 # print(feed)
-# print(feed.data())
+# print(feed.tweets)

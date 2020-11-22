@@ -12,7 +12,9 @@ api = tweepy.API(auth)
 filename = "home.html"
 html = open(filename, "w", encoding="utf-8")
 html.write(
-    "<html><head><link href=\"style.css\" rel=\"stylesheet\"/><title>Voluntary Twitter Manga Translation Feed</title></head>")
+    "<html><head><link href=\"style.css\" rel=\"stylesheet\"/><script src=\"read_form.js\"></script>" +
+    "<title>Voluntary Twitter Manga Translation Feed</title></head>")
+
 html.write("<body>")
 
 # data needed
@@ -22,18 +24,19 @@ html.write("<body>")
 # Twitter handle of author
 
 
-mangaFeed = MangaFeed("漫画", 15, api)
-print(mangaFeed)
+mangaFeed = MangaFeed("漫画", 500, api)
+# print(mangaFeed)
 feed = mangaFeed.tweets
 print(len(feed))
 for post in feed:
     print(post)
     print(post["images"])
+    print(post["twitter handle"])
 
 
 # makes a form input line, where users can input a translation for one photo. num refers to the photo number
 def make_form_line(num):
-    return "<p><label>Translation for line " + str(num) + ": <input type=\"text\"/></label></p>"
+    return "<p><label>Translation for picture " + str(num) + ": <input type=\"text\"/></label></p>"
 
 
 def get_embed(url):
@@ -46,10 +49,11 @@ def write_block(tweet):
     tweetembed = get_embed(tweet["url"][:-8])
     html.write("<div class=\"side-by-side\">")
     # form div contains textboxes and translate button
-    html.write("<div class=\"form\">")
+    html.write("<div class=\"form\" id=\"" + str(tweet["post_id"]) + " " + tweet["twitter handle"] + "\">")
     for i in range(len(tweet["images"])):
         html.write(make_form_line(i+1))
     html.write("<button class=\"translatebtn\" type=\"button\">Translate</button>")
+    html.write("<p>Tweet username - don't reply if not author!: " + tweet["twitter handle"] + "</p>")
     html.write("</div>")
     html.write(tweetembed)
     html.write("</div>")
